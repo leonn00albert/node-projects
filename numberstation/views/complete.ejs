@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Your ID</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="card m-5">
+            <div class="card-body">
+              <h1>Your @ID</h1>
+              <p>Make sure to save the keys somewhere safe, this information will not be accessable after closing this page</p>
+              <a href="/" class="btn btn-primary">Back</a>
+            </div>
+          </div>
+        <div class="card m-5">
+
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@ID</span>
+                        <input id="input0" style="background-color: white;" readonly type="text" class="form-control" placeholder="ID" value="<%= id %> " aria-label="Username" aria-describedby="basic-addon1">
+                        <button class="input-group-text" id="copy" onclick="copyText(0)">Copy</button>  
+                    </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Private Key</span>
+                        <input  id="input1" readonly style="background-color: white;" type="text" class="form-control" placeholder="ID" value="<%= privateKey%>" aria-label="Username" aria-describedby="basic-addon1">
+                        <button class="input-group-text" id="basic-addon2" onclick="copyText(1)">Copy</button> 
+                    </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Public Key</span>
+                        <input  id="input2" readonly style="background-color: white;" type="text" class="form-control" placeholder="ID" aria-label="Username" value="<%= publicKey%>"aria-describedby="basic-addon1">
+                        <button class="input-group-text" id="basic-addon2" onclick="copyText(2)">Copy</button>  
+                    </div>
+                  </div>
+                
+ 
+          </div>
+      </div>
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <script>
+        function copyText(n) {
+            var copyText = document.querySelector("#input" + n);
+            copyText.select();
+            document.execCommand("copy");
+          }
+
+        </script>
+
+  </body>
+</html>
