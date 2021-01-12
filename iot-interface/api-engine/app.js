@@ -23,7 +23,13 @@ app.use(methodOverride("_method"));
 app.listen(3000,function(){
 	console.log("server is running")
 })
+var dataSchema = new mongoose.Schema({
+    temp: String,
+    hum: String,
+      created: {type: Date, default: Date.now}
+  });
 
+var Data = mongoose.model("data", dataSchema);
 
 // Schema config
 var userSchema = new mongoose.Schema({
@@ -38,19 +44,15 @@ var User = mongoose.model("user", userSchema);
 
 //routes
 app.get("/", function(req, res){
-    if(auth == true){
-        User.find({},function(err,foundUsers){
-            if(err){
-                console.log(err);
-            }
-            else{
-                res.render("index",{users: foundUsers})
-            }
-        })
-    }
-    else{
-        res.redirect("/login")
-    }
+    Data.find({}).then((foundData)=>{
+        res.render('data',{data:foundData})
+    }).catch((err)=>{console.log(err)})
+   
+
+})
+
+app.get("/update", function(req, res){
+   res.send('hello')
 
 })
 

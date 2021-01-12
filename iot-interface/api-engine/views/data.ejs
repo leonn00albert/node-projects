@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Data</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <% data.forEach(function(d,i){ %>
+      <tr>
+
+            <td scope="row"><%= i %></td>
+            <td><%= d.temp %></td>
+          <td><%= d.hum %></td>
+       <% }) %>
+  
+    </tr>
+
+    </tbody>
+  </table>
